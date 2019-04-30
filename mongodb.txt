@@ -1,2 +1,0 @@
-username: video_saved
-pass: videoSaved2019

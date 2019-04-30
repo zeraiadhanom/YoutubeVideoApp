@@ -3,6 +3,37 @@
 import store from '../store'
 import axios from 'axios';
 
+
+export const FETCH_VIDEO_PENDING = 'FETCH_VIDEO_PENDING';
+export const FETCH_VIDEO_SUCCESS = 'FETCH_VIDEO_SUCCESS';
+export const FETCH_VIDEO_ERROR = 'FETCH_VIDEO_ERROR';
+
+
+function fetchVideoPending() {
+   return {
+    type: FETCH_VIDEO_PENDING
+  }
+}
+
+
+function fetchVideoSuccess(videos) {
+  return {
+    type: FETCH_VIDEO_SUCCESS,
+    videos: videos
+  }
+}
+
+
+function fetchVideoError(error) {
+   return {
+     type:FETCH_VIDEO_ERROR,
+     error: error 
+   }
+}
+
+
+
+
 const searchVideo =(id) => {
     return dispatch => {
         dispatch({
@@ -13,7 +44,7 @@ const searchVideo =(id) => {
         .then(response => response.data)
         .then(results =>{
             dispatch({
-                type:RECIVE_VIDEO,
+                type:FETCH_VIDEO_SUCCESS,
                 payload: results.item
             })
         })

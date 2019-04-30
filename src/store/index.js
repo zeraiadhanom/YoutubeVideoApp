@@ -1,5 +1,5 @@
 import {createStore, applyMiddleware} from 'redux';
-import reducers from './Reducers/reducers';
+import reducers from '../Reducers/reducers';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger'
 import {compose} from 'redux';
